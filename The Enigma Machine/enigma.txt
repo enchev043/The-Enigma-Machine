@@ -1,0 +1,105 @@
+Project Owner: Simeon Enchev Enchev
+Student number: 29554799
+
+---------------COMPLETED PARTS---------------
+1. Modelling the Plugboard
+	-Classes: Plug.java, Plugboard.java
+
+2. Modelling the Rotors
+	-Classes: Rotor.java
+
+3. Modelling the Reflector
+	-Classes: Reflector.java
+
+4. Modelling the Basic Rotors
+	-Classes: BasicRotor.java
+
+5. Modelling the Enigma Machine
+	-Classes: EnigmaMachine.java
+
+6. Reading and Writing files
+	-Classes: EnigmaFile.java
+	-Files: EnigmaFileInput.txt / EnigmaFileOutput.txt
+
+7. Modelling the TurnoverRotors
+	-Classes: TurnoverRotor.java
+
+8. Building a Bombe
+	-Classes: Bombe
+---------------------------------------------
+
+
+Before any additional tests, read this!
+--------------ENIGMA SETUP-------------------
+
+	In Main.java I've included a method for each part of the coursework. In the methods, the different Enigma configurations are already set. If you want to make your own tests
+ you should note that:
+
+	1.Enigma constructor is: EnigmaMachine(BasicRotor RotorI, BasicRotor RotorII, BasicRotor RotorIII, Reflector reflector).
+
+	2.Reflector constructor is: Reflector(String type) / type is String either "I" or "II".
+
+	3.BasicRotor and TurnoverRotor constructor is: BasicRotor(String type, int position) / type is either "I", "II", "III", "IV", "V" and position is the position of the Rotor
+	TurnoverRotor settings are setted in the code of the constructor. If you want to change anything, go to TurnoverRotor.java and check out the construtor.
+
+	4.Bombe constructor: Bombe(BasicRotor RotorI, BasicRotor RotorII, BasicRotor RotorIII, Reflector reflector, String message) / message is what should be decoded by the Bombe.
+
+	5.Plugs: They are easily added by calling the method enigmaMachine.getPlugboard().addPlug(x,y) where x and y are both chars and represent both endings of the plug.
+
+	6.Writing files: There is a separate method in Main.java called printFile(EnigmaMachine enigmaMachine) that writes decoded messages in .txt files. You should pass
+		an already configured Enigma to the method. To decode a message, you must first enter the message in EnigmaFileInput.txt found in \src\ folder of the project.
+		After executing the code, you can find the decoded message in EnigmaFileOutput.txt in the same directory.
+	
+
+	!IMPORTANT!: To use any of the mappings, you need to initialise it after the object is created. For example, after a new Reflector is created, we need the method 
+		reflector.initialise(reflector.getType()); to fill the mapping. Same goes for the other Rotors. If you have any questions, check out startTest1() or startTest2() 
+		in Main.java.
+
+	Comment#1: I have created a custom method for the EnigmaMachine class called encodeLetters(String) which takes a whole message and decodes it, instead of a single letter.
+		It is created for convenience.
+
+	Comment#2: I was not sure if the mappings should be initialised in the constructor. I hope that is not case. It can easily be implemented by adding a single line of code.
+	
+
+---------------------------------------------
+
+
+
+---------------BOMBE COMMENTS----------------
+Challenge 1:
+	Comment - I had difficulties rotating through all possible combinations of both plugs, although I knew how to do it. So I had to test with only one plug. I started my tests
+		tests by running all possible outcomes with the Plug "D -?" but there was no senseful output. Then I ran tests with "S-?" and the first output made some sense.
+		The output was : TAISYTAISYGIVEMEYOURANSWERTO. I figured that I need to switch the T in the word with D on my own. So I did and the output was DAISYDAISYGIVEMEYOURANSWERDO.
+
+	Output - "Daisy, Daisy, give me your answer, do" with plugs [S-A] and [D-T]
+
+Challenge 2:
+	Comment - For some reason, my rotor positions are different then what the others got, but I still get the same encoded message for those positions. I hope that is not a problem.
+	Output - "We'll always be together however far it seems, we'll always be together in electric dreams" with rotor positions of [6,9,15].
+
+Challenge 3:
+	Comment - I know that I have to run every mapping through each Rotor by using 3 different forLoops and I am getting different outputs when doing it, but I simply could not
+		make it work. You can check the code.
+	Output - " "
+--------------------------------------------
+
+
+
+
+-----------------EXTENSIONS-----------------
+EXTENSION #1
+Relevant methods: ExtensionUserInput method in the Main.java
+
+Comments: The method allows the user to enter a message a key at a time and at the outputs the decoded message. After every key is entered, the docoded value of the key is printed.
+
+EXTENSION #2
+I tried to implement a second extension that uses console interface but I didn't have enough time to finish it. The code is still in the project if you want to check it out. You can find it
+in the EnigmaMachine.java class. This is the last method.
+
+
+--------------------------------------------
+
+Any other questions can be directed to see1u17@soton.ac.uk
+
+
+
