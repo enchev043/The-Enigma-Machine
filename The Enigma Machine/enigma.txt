@@ -1,5 +1,4 @@
 Project Owner: Simeon Enchev Enchev
-Student number: 29554799
 
 ---------------COMPLETED PARTS---------------
 1. Modelling the Plugboard
